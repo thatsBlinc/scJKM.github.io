@@ -17,12 +17,13 @@ function updateCntDown() {
 }
 
 function setDynamicTime(selector,start=0,end=19) {
-	time_update_list.push({selector:selector,start:start,end:end}),updateTime(),time_updater_init||(time_updater_init=!0,window.setInterval(updateTime,1e3))
+	time_update_list.push({selector:selector,start:start,end:end})
+	window.setInterval(updateTime,1e3)
 }
 
 function setCntDown(selector,start=17,end=19) {
-	
-	time_update_list.push({selector:selector,start:start,end:end}),updateTime(),cntdown_updater_init||(cntdown_updater_init=!0,window.setInterval(updateTime,1e3))
+	time_update_list.push({selector:selector,start:start,end:end})
+	window.setInterval(updateTime,1e3)
 }
 
 
