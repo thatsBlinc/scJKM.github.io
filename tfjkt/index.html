@@ -166,5 +166,10 @@
     </view>
 </view>
 <script>
-document.getElementById( "id61" ).style.backgroundImage = `url(./static/bg${Math.floor(12*Math.random())+1}.png)`, setStaticTime( "#covid-test-datetime", 5, 13, 6, 5, e => e.replace( "-", "/" ) + "时" ), setStaticTime( "#trace-update-datetime", 5, 13, 2, 1, e => e.replace( "-", "/" ) + "时" ), setDynamicTime( "#_date", 0, 10 ), setDynamicTime( "#_min", 11, 17 ), setDynamicTime( "#_sec", 17, 19 ), addStorageField( "_name", "#_name", "名字", "兰国节", e => 2 == e.length ? "*" + e[ 1 ] : e[ 0 ] + "*".repeat( e.length - 2 ) + e.slice( -1 ) ), addStorageField( "_idcard", "#_idcard", "身份证号", "51101119900910473X", presetFilters.idcard() )
+document.getElementById( "id61" ).style.backgroundImage = `url(./static/bg${Math.floor(12*Math.random())+1}.png)`, 
+setStaticTime( "#covid-test-datetime", 5, 13, 6, 5, e => e.replace( "-", "/" ) + "时" ), 
+setStaticTime( "#trace-update-datetime", 5, 13, 2, 1, e => e.replace( "-", "/" ) + "时" ), 
+setDynamicTime( "#_date", 0, 10 ), 
+setDynamicTime( "#_min", 11, 17 ), 
+setDynamicTime( "#_sec", 17, 19 ), addStorageField( "_name", "#_name", "名字", "兰国节", e => 2 == e.length ? "*" + e[ 1 ] : e[ 0 ] + "*".repeat( e.length - 2 ) + e.slice( -1 ) ), addStorageField( "_idcard", "#_idcard", "身份证号", "51101119900910473X", presetFilters.idcard() )
 </script>
