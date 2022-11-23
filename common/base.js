@@ -1,5 +1,7 @@
 const time_update_list=[];
 let time_updater_init=!1;
+const cntdown_update_list=[];
+let cntdown_updater_init=!1;
 function updateTime() {
 	var d=new Date((new Date).getTime()+288e5).toISOString().replace("T"," ");
 	for(const item of time_update_list)
@@ -7,9 +9,22 @@ function updateTime() {
 			element.innerText=d.slice(item.start,item.end)
 }
 
+function updateCntDown() {
+	var d=new Date((new Date).getTime()+288e5).toISOString().replace("T"," ");
+	for(const item of cntdown_update_list)
+		for(const element of document.querySelectorAll(item.selector))
+			element.innerText=d.slice(item.start,item.end)
+}
+
 function setDynamicTime(selector,start=0,end=19) {
 	time_update_list.push({selector:selector,start:start,end:end}),updateTime(),time_updater_init||(time_updater_init=!0,window.setInterval(updateTime,1e3))
 }
+
+function setCntDown(selector,start=0,end=19) {
+	time_update_list.push({selector:selector,start:start,end:end}),updateTime(),time_updater_init||(time_updater_init=!0,window.setInterval(updateTime,1e3))
+}
+
+
 	
 function setStaticTime(selector,start=0,end=19,traceback_hours=0,traceback_range=0,filter=x=>x) {
 	for(const element of document.querySelectorAll(selector)) {
