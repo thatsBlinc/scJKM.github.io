@@ -1,7 +1,7 @@
 const time_update_list=[];
 let time_updater_init=!1;
 const cntdown_update_list=[];
-let cntdown_updater_init=!1;
+let cntdown_updater_init=1;
 function updateTime() {
 	var d=new Date((new Date).getTime()+288e5).toISOString().replace("T"," ");
 	for(const item of time_update_list)
@@ -20,8 +20,9 @@ function setDynamicTime(selector,start=0,end=19) {
 	time_update_list.push({selector:selector,start:start,end:end}),updateTime(),time_updater_init||(time_updater_init=!0,window.setInterval(updateTime,1e3))
 }
 
-function setCntDown(selector,start=0,end=19) {
-	time_update_list.push({selector:selector,start:start,end:end}),updateTime(),time_updater_init||(time_updater_init=!0,window.setInterval(updateTime,1e3))
+function setCntDown(selector,start=17,end=19) {
+	
+	time_update_list.push({selector:selector,start:start,end:end}),updateTime(),cntdown_updater_init||(cntdown_updater_init=!0,window.setInterval(updateTime,1e3))
 }
 
 
