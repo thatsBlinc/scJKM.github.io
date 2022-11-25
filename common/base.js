@@ -2,28 +2,37 @@ const time_update_list=[];
 let time_updater_init=!1;
 const cntdown_update_list=[];
 let cntdown_updater_init=1;
+var updated=0;
+var i=0;
+boolean
 function updateTime() {
 	var d=new Date((new Date).getTime()+288e5).toISOString().replace("T"," ");
-	for(const item of time_update_list)
-		for(const element of document.querySelectorAll(item.selector))
-			element.innerText=d.slice(item.start,item.end)
-}
-
-function updateCntDown() {
-	var d=new Date((new Date).getTime()+288e5).toISOString().replace("T"," ");
-	for(const item of cntdown_update_list)
-		for(const element of document.querySelectorAll(item.selector))
-			element.innerText=d.slice(item.start,item.end)
+	for(const item of time_update_list){
+		//console.log(item)
+		if(item.selector=="#_countd"){
+			//document.querySelectorAll(item.selector).innerText=60-i;
+			for(const element of document.querySelectorAll(item.selector)){
+					element.innerText=60-parseInt(i/4);	
+			}
+		}
+		else{
+			for(const element of document.querySelectorAll(item.selector))
+				//console.log("===",element)
+				element.innerText=d.slice(item.start,item.end)
+		}
+	}
+	i++;
+	
 }
 
 function setDynamicTime(selector,start=0,end=19) {
-	time_update_list.push({selector:selector,start:start,end:end})
+	//if(time_update_list.con)
+	time_update_list.push({selector:selector,start,end})
 	window.setInterval(updateTime,1e3)
 }
 
 function setCntDown(selector,start=17,end=19) {
-	time_update_list.push({selector:selector,start:start,end:end})
-	window.setInterval(updateTime,1e3)
+	time_update_list.push({selector:selector,start,end})
 }
 
 
