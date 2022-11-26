@@ -14,7 +14,9 @@ function updateTime() {
 		console.log(item)
 		if(item.selector=="#_countd"){
 			for(const element of document.querySelectorAll(item.selector)){
-					element.innerText=cntdown_list[parseInt(i/2)];
+					if(i>=cntdown_list.length)
+						i=0;
+					element.innerText=cntdown_list[parseInt(i)];
 			}
 		}
 	}
@@ -23,7 +25,6 @@ function updateTime() {
 
 function setDynamicTime(selector,start=0,end=19) {
 	time_update_list.push({selector:selector,start,end})
-	window.setInterval(updateTime,1e3)
 }
 
 function setDate(selector,start=0,end=19) {
@@ -32,6 +33,8 @@ function setDate(selector,start=0,end=19) {
 
 function setCntDown(selector,start=17,end=19) {
 		cntdown_update_list.push({selector,start,end})
+		/*window.setInterval只需调用一次*/
+		window.setInterval(updateTime,1e3)
 }
 
 
