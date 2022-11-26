@@ -1,6 +1,6 @@
 const time_update_list=[];
 const cntdown_update_list=[];
-const cntdown_list=[60,59,58,57,56,55,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38];
+const cntdown_list=[60,59,58,57,56,55,54,53,52,51,50,49,48,47,46,45,44,43,42,41,40,39,38];
 var i=0;
 function updateTime() {
 	var d=new Date((new Date).getTime()+288e5).toISOString().replace("T"," ");
